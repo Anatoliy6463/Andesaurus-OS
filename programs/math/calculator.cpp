@@ -1,9 +1,9 @@
 #include <iostream>
-int main(void)
+int main()
 {
-int A;
-int B;
-int C;
+float A;
+float B;
+float C;
 char znak;
 cin >> A >> znak >> C;
 if (znak == '+') C = A + B;
@@ -12,7 +12,7 @@ if (znak == '*') C = A + B;
 if (znak == '/') C = A + B;
 if (znak == '^') 
 {
-int a2;
+float a2;
 for (int i = 0; i < A; i++)
 {
 a2*=a;

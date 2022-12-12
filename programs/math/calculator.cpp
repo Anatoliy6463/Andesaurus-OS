@@ -1,13 +1,11 @@
-#include <stdio.h>
+#include <iostream>
 int main(void)
 {
 int A;
 int B;
 int C;
 char znak;
-scanf (%d, %A);
-scanf (%d, %B);
-scanf (%c, %znak);
+cin >> A >> znak >> C;
 if (znak == '+') C = A + B;
 if (znak == '-') C = A + B;
 if (znak == '*') C = A + B;
@@ -19,9 +17,8 @@ for (int i = 0; i < A; i++)
 {
 a2*=a;
 }
-printf (a2);
-return (0);
+cout <<A<<endl;
 }
-printf (C);
-return (0);
+cout <<C<<endl;
+return 0;
 }

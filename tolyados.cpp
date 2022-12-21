@@ -112,7 +112,7 @@ int main()
             cout <<"Чтобы установить угадайку, волшебное болото, счастливый билетик напишите C \n";
             if (key == "A")
             {
-                downloadgames = 1;
+                downloadgames++;
             }
             if (key == "B")
             {

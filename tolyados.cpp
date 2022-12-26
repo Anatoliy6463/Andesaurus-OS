@@ -31,25 +31,6 @@ int main()
     }
     if (key == "Downloads" && level == 1 && downloadgames == 0)
     {
-        cout <<"Откройте браузер и скачайте файлы";
-    }
-    if (key == "Downloads" && level == 1 && downloadgames == 1)
-    {
-        cout <<"ugadaika2 \n";
-        cout <<"ugadaika3 \n";
-        cout <<"ugadaika4 \n";
-        cout <<"ugadaika5 \n";
-    }
-    if (key == "Downloads" && level == 1 && downloadgames == 2)
-    {
-        cout <<"ugadaika2 \n";
-        cout <<"ugadaika3 \n";
-        cout <<"ugadaika4 \n";
-        cout <<"ugadaika5 \n";
-        cout <<"volshebnoeboloto \n";
-    }
-    if (key == "Downloads" && level == 1 && downloadgames == 3)
-    {
         cout <<"ugadaika2 \n";
         cout <<"ugadaika3 \n";
         cout <<"ugadaika4 \n";

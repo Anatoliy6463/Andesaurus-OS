@@ -67,27 +67,27 @@ int main()
     }
     if (key == "ugadaika2" && level == 1 && downloadsgames >= 1)
     {
-        cout <<"Откройте файл ugadaika2.cpp \n";
+        fopen("ugadaika2.cpp", "rb+");
     }
     if (key == "ugadaika3" && level == 1 && downloadsgames >= 1)
     {
-        cout <<"Откройте файл ugadaika3.cpp \n";
+        fopen("ugadaika3.cpp", "rb+");
     }
     if (key == "ugadaika4" && level == 1 && downloadsgames >= 1)
     {
-        cout <<"Откройте файл ugadaika4.cpp \n";
+        fopen("ugadaika4.cpp", "rb+");
     }
     if (key == "ugadaika5" && level == 1 && downloadsgames >= 1)
     {
-        cout <<"Откройте файл ugadaika5.cpp \n";
+        fopen("ugadaika5.cpp", "rb+");
     }
     if (key == "volshebnoeboloto" && level == 1 && downloadsgames >= 2)
     {
-        cout <<"Откройте файл volshebnoeboloto.cpp \n";
+        fopen("volshebnoeboloto.cpp", "rb+");
     }
     if (key == "biletik" && level == 1 && downloadsgames >= 3)
     {
-        cout <<"Откройте файл bilet.cpp \n";
+        fopen("biletik.cpp", "rb+");
     }
     if (key == "help")
     {
@@ -96,7 +96,6 @@ int main()
         cout <<"internet - открывает браузер \n";
         cout <<"cd - открывает папку \n";
         cout <<"cd.. - открывает папку \n";
-        cout <<"vi открывает редактор vi \n";
     }
     if (key == "browser")
     {

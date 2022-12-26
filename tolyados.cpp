@@ -8,7 +8,7 @@ int main()
     string key;
     int A;
     float level = 1;
-    int downloadsgames = 0;
+    int downloadgames = 0;
     int song = 0;
     cout <<"Добро пожаловать в TolyaDOS v0.0.4-alpha \n";
     while (key != "q")
@@ -29,18 +29,18 @@ int main()
     {
         cout <<"Здесь пусто \n";
     }
-    if (key == "Downloads" && level == 1 && downloadsgames == 0)
+    if (key == "Downloads" && level == 1 && downloadgames == 0)
     {
         cout <<"Откройте браузер и скачайте файлы";
     }
-    if (key == "Downloads" && level == 1 && downloadsgames == 1)
+    if (key == "Downloads" && level == 1 && downloadgames == 1)
     {
-        cout <<"Угадайка 2 \n";
-        cout <<"Угадайка 3 \n";
-        cout <<"Угадайка 4 \n";
-        cout <<"Угадайка 5 \n";
+        cout <<"ugadaika2 \n";
+        cout <<"ugadaika3 \n";
+        cout <<"ugadaika4 \n";
+        cout <<"ugadaika5 \n";
     }
-    if (key == "Downloads" && level == 1 && downloadsgames == 2)
+    if (key == "Downloads" && level == 1 && downloadgames == 2)
     {
         cout <<"ugadaika2 \n";
         cout <<"ugadaika3 \n";
@@ -48,7 +48,7 @@ int main()
         cout <<"ugadaika5 \n";
         cout <<"volshebnoeboloto \n";
     }
-    if (key == "Downloads" && level == 1 && downloadsgames == 3)
+    if (key == "Downloads" && level == 1 && downloadgames == 3)
     {
         cout <<"ugadaika2 \n";
         cout <<"ugadaika3 \n";
@@ -65,27 +65,27 @@ int main()
     {
         cout <<"А ты изобрети \n А ты изобрети \n как море переплыть \n как гору перейти \n как к звёздам полететь и там друзей найти \n никто не знает как это изобрести \n новаторы в пути!";
     }
-    if (key == "ugadaika2" && level == 1 && downloadsgames >= 1)
+    if (key == "ugadaika2" && level == 1 && downloadgames >= 1)
     {
         fopen("ugadaika2.cpp", "rb+");
     }
-    if (key == "ugadaika3" && level == 1 && downloadsgames >= 1)
+    if (key == "ugadaika3" && level == 1 && downloadgames >= 1)
     {
         fopen("ugadaika3.cpp", "rb+");
     }
-    if (key == "ugadaika4" && level == 1 && downloadsgames >= 1)
+    if (key == "ugadaika4" && level == 1 && downloadgames >= 1)
     {
         fopen("ugadaika4.cpp", "rb+");
     }
-    if (key == "ugadaika5" && level == 1 && downloadsgames >= 1)
+    if (key == "ugadaika5" && level == 1 && downloadgames >= 1)
     {
         fopen("ugadaika5.cpp", "rb+");
     }
-    if (key == "volshebnoeboloto" && level == 1 && downloadsgames >= 2)
+    if (key == "volshebnoeboloto" && level == 1 && downloadgames >= 2)
     {
         fopen("volshebnoeboloto.cpp", "rb+");
     }
-    if (key == "biletik" && level == 1 && downloadsgames >= 3)
+    if (key == "biletik" && level == 1 && downloadgames >= 3)
     {
         fopen("biletik.cpp", "rb+");
     }
@@ -124,5 +124,5 @@ int main()
             }
         }
     }
-    }
+}
 }

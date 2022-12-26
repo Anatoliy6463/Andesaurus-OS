@@ -10,6 +10,7 @@ int main()
     float level = 1;
     int downloadsgames = 0;
     int song = 0;
+    cout <<"Добро пожаловать в TolyaDOS v0.0.4-alpha \n";
     while (key != "q")
     {
     cin >> key;

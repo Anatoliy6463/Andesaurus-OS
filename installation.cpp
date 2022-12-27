@@ -7,7 +7,7 @@ int main()
   string soglasie;
   cout <<"Вы принимаете условия лицензии? \n";
   cin >> soglasie;
-  if (soglasie == "Да" || soglasie == "Oui" || soglasie == "Yes")
+  if (soglasie == "Да" || soglasie == "Yes")
   {
     cout <<"Доступ разрешён\n";
   }

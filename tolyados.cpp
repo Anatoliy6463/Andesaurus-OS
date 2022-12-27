@@ -18,6 +18,7 @@ int main()
     {
         cout <<"Documents \n";
         cout <<"Downloads \n";
+	cout <<"programs \n";
         cout <<"readme.txt \n";
         cout <<"Songs \n";
     }
@@ -29,7 +30,12 @@ int main()
     {
         cout <<"Здесь пусто \n";
     }
-    if (key == "Downloads" && level == 1 && downloadgames == 0)
+    if (key == "Downloads" && level == 1)
+    {
+        cout <<"Здесь пусто \n";
+    }
+
+    if (key == "programs" && level == 1)
     {
         cout <<"ugadaika2 \n";
         cout <<"ugadaika3 \n";
@@ -37,6 +43,7 @@ int main()
         cout <<"ugadaika5 \n";
         cout <<"volshebnoeboloto \n";
         cout <<"biletik \n";
+	cout <<"math \n";
     }
     if (key == "Songs" && level == 1 && song >= 1)
     {
@@ -46,29 +53,83 @@ int main()
     {
         cout <<"А ты изобрети \n А ты изобрети \n как море переплыть \n как гору перейти \n как к звёздам полететь и там друзей найти \n никто не знает как это изобрести \n новаторы в пути!";
     }
-    if (key == "ugadaika2" && level == 1 && downloadgames >= 1)
+    if (key == "ugadaika2" && level == 1)
     {
+	cout <<"Загрузка \n";
         fopen("ugadaika2.cpp", "rb+");
     }
-    if (key == "ugadaika3" && level == 1 && downloadgames >= 1)
+    if (key == "ugadaika3" && level == 1)
     {
-        fopen("ugadaika3.cpp", "rb+");
+        cout <<"Загрузка \n";
+	fopen("ugadaika3.cpp", "rb+");
     }
-    if (key == "ugadaika4" && level == 1 && downloadgames >= 1)
+    if (key == "ugadaika4" && level == 1)
     {
-        fopen("ugadaika4.cpp", "rb+");
+	cout <<"Загрузка \n";
+      	fopen("ugadaika4.cpp", "rb+");
     }
-    if (key == "ugadaika5" && level == 1 && downloadgames >= 1)
+    if (key == "ugadaika5" && level == 1)
     {
+        cout <<"Загрузка \n";
         fopen("ugadaika5.cpp", "rb+");
     }
-    if (key == "volshebnoeboloto" && level == 1 && downloadgames >= 2)
+    if (key == "volshebnoeboloto" && level == 1)
     {
+        cout <<"Загрузка \n";
         fopen("volshebnoeboloto.cpp", "rb+");
     }
-    if (key == "biletik" && level == 1 && downloadgames >= 3)
+    if (key == "biletik" && level == 1)
     {
+        cout <<"Загрузка \n";
         fopen("biletik.cpp", "rb+");
+    }
+    if (key == "cd math" && level == 1)
+    {
+	level = 2;
+	if (key == "ls")
+	{
+	   cout <<"arccosinus.cpp \n";
+	   cout <<"arcsinus.cpp \n";
+	   cout <<"cosinus.cpp \n";
+	   cout <<"sinus.cpp \n";
+	   cout <<"arccosinus.cpp \n";
+	   cout <<"calculator.cpp \n";
+	   cout <<"koren.cpp \n";
+	}
+	if (key == "arccosinus")
+        {
+           cout <<"Загрузка \n";
+	   fopen("arccosinus.cpp", "rb+");
+        }
+	if (key == "arcsinus")
+        {
+           cout <<"Загрузка \n";
+           fopen("arcsinus.cpp", "rb+");
+        }
+	if (key == "cosinus")
+        {
+           cout <<"Загрузка \n";
+           fopen("cosinus.cpp", "rb+");
+        }
+	if (key == "sinus")
+        {
+           cout <<"Загрузка \n";
+           fopen("sinus.cpp", "rb+");
+        }
+	if (key == "koren")
+        {
+           cout <<"Загрузка \n";
+           fopen("koren.cpp", "rb+");
+        }
+	if (key == "calculator")
+        {
+           cout <<"Загрузка \n";
+           fopen("calculator.cpp", "rb+");
+        }
+	if (key == "cd ..")
+	{
+	   level = 1;
+	}
     }
     if (key == "help")
     {
@@ -88,21 +149,7 @@ int main()
         }
         if (key == "install games")
         {
-            cout <<"Чтобы установить угадайку напишите A \n";
-            cout <<"Чтобы установить угадайку и волшебное болото напишите B \n";
-            cout <<"Чтобы установить угадайку, волшебное болото, счастливый билетик напишите C \n";
-            if (key == "A")
-            {
-                downloadgames++;
-            }
-            if (key == "B")
-            {
-                downloadgames = 2;
-            }
-            if (key == "C")
-            {
-                downloadgames = 3;
-            }
+	    cout <<"В разработке \n";
         }
     }
 }

@@ -6,11 +6,12 @@ using namespace std;
 int main()
 {
     string key;
-    int A;
     float level = 1;
     int downloadgames = 0;
     int song = 0;
-    cout <<"Добро пожаловать в TolyaDOS v0.0.4-alpha \n";
+    int version[4] = {0, 0, 5, 2};
+    string dev = "alpha";
+    cout <<"Добро пожаловать в TolyaDOS v<<version[0]<<'.'<<version[1]<<'.'<<version[2]<<'-'<<dev<<'.'<<version[3]<<endl;
     while (key != "q")
     {
     cin >> key;
@@ -21,10 +22,6 @@ int main()
 	cout <<"programs \n";
         cout <<"readme.txt \n";
         cout <<"Songs \n";
-    }
-    if (key == "readme" && level == 1)
-    {
-        cout <<"Добро пожаловать в TolyaDOS Build 1800 \n";
     }
     if (key == "Documents" && level == 1)
     {

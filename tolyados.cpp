@@ -9,8 +9,8 @@ int main()
     float level = 1;
     int downloadgames = 0;
     int song = 0;
-    int version[4] = {0, 0, 5, 2};
-    string dev = "alpha";
+    int version[4] = {0, 0, 6, 0};
+    string dev = "pre-publicalpha";
     cout <<"Добро пожаловать в TolyaDOS v<<version[0]<<'.'<<version[1]<<'.'<<version[2]<<'-'<<dev<<'.'<<version[3]<<endl;
     while (key != "q")
     {
@@ -80,7 +80,7 @@ int main()
         cout <<"Загрузка \n";
         fopen("biletik.cpp", "rb+");
     }
-    if (key == "cd math" && level == 1)
+    if (key == "cdmath" && level == 1)
     {
 	level = 2;
 	if (key == "ls")
@@ -123,7 +123,7 @@ int main()
            cout <<"Загрузка \n";
            fopen("calculator.cpp", "rb+");
         }
-	if (key == "cd ..")
+	if (key == "cd..")
 	{
 	   level = 1;
 	}
@@ -134,7 +134,18 @@ int main()
         cout <<"browser - открывает браузер \n";
         cout <<"internet - открывает браузер \n";
         cout <<"cd - открывает папку \n";
-        cout <<"cd.. - открывает папку \n";
+        cout <<"cd.. - закрывает папку \n";
+    }
+    if (key == "installv:ir")
+    {
+	cout <<"На вашем компьютере вирус. \n";
+	cout <<"Чтобы установить антивирус напишите installpcdestroyer:bestvirus \n";
+	if (key == "installpcdestroyer:bestantivirus")
+	{
+	  cout <<"Гудбай \n";
+	  break;
+	  cout <<"Подсказка: не эксперементируйте с ПК а также смотрите на название программы перевод названия антивиуса: Установить уничтожитель компьютера: лучший вирус \n";
+	}
     }
     if (key == "browser")
     {

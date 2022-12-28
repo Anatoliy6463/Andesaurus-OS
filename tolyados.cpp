@@ -1,6 +1,4 @@
 #include <iostream>
-#include <ctime>
-#include <cstdlib>
 #include <cstring> 
 using namespace std;
 int main()
@@ -9,10 +7,17 @@ int main()
     float level = 1;
     int downloadgames = 0;
     int song = 0;
-    int version[4] = {0, 0, 6, 0};
-    string dev = "pre-publicalpha";
-    cout <<"Добро пожаловать в TolyaDOS v<<version[0]<<'.'<<version[1]<<'.'<<version[2]<<'-'<<dev<<'.'<<version[3]<<endl;
-    while (key != "q")
+    int version[4] = {0, 1, 1, 1};
+    string dev = "publicalpha";
+    string login = "TestUser";
+    string password = "Test";
+    string login2;
+    string password2;
+    cin >> login2 >> password2;
+    if (login2 == login && password2 == password)
+    {
+    cout <<"Добро пожаловать в TolyaDOS v"<<version[0]<<'.'<<version[1]<<'.'<<version[2]<<'-'<<dev<<'.'<<version[3]<<endl;
+    while (key != "quit")
     {
     cin >> key;
     if (key == "ls" && level == 1)
@@ -135,12 +140,13 @@ int main()
         cout <<"internet - открывает браузер \n";
         cout <<"cd - открывает папку \n";
         cout <<"cd.. - закрывает папку \n";
+	    cout <<"quit - выход из системы \n";
     }
     if (key == "installv:ir")
     {
 	cout <<"На вашем компьютере вирус. \n";
 	cout <<"Чтобы установить антивирус напишите installpcdestroyer:bestvirus \n";
-	if (key == "installpcdestroyer:bestantivirus")
+	if (key == "installpcdestroyer:bestvirus")
 	{
 	  cout <<"Гудбай \n";
 	  break;
@@ -160,5 +166,6 @@ int main()
 	    cout <<"В разработке \n";
         }
     }
-}
+    }
+    }
 }

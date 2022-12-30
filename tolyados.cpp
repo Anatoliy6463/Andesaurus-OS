@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cstring> 
+#include <cstdlib>
 using namespace std;
 int main()
 {
@@ -17,10 +17,11 @@ int main()
     if (login2 == login && password2 == password)
     {
     cout <<"Добро пожаловать в TolyaDOS v"<<version[0]<<'.'<<version[1]<<'.'<<version[2]<<'-'<<dev<<'.'<<version[3]<<endl;
+    system("bash");
     }
     else
     {
-	    int k = 0;
+	int k = 0;
 	while (login2 != login && password2 != password)
 	{
 		cout <<"Попробуйте ещё раз \n";

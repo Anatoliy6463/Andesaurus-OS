@@ -28,7 +28,7 @@ int main()
 		cout <<"Попробуйте ещё раз \n";
 		cin >> login2 >> password2;
 		k++;
-		if (k >= 5)
+		if (k >= 3)
 		{
 			cout <<"Доступ запрещён \n";
 			break;

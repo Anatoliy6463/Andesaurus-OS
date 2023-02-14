@@ -10,9 +10,7 @@ int main()
   if (soglasie == "Да" || soglasie == "Yes")
   {
     cout <<"Доступ разрешён\n";
-    FILE *fp;
-    fp = fopen("DOS", "r+b");
-    cout <<fp<<endl;
+    fopen("DOS", "r+b");
   }
   else
   {

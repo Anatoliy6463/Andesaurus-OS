@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include <cstdlib>
-#include <stdafx.h>
+#include <unistd.h>
 using namespace std;
 int main()
 {

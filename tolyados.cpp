@@ -1,11 +1,12 @@
 #include <iostream>
 #include <cstring>
 #include <cstdlib>
+#include <stdafx.h>
 using namespace std;
 int main()
 {
     string key;
-    int version[3] = {1, 0, 4};
+    int version[3] = {1, 0, 5};
     string login = "TestUser";
     string password = "Test";
     string login2;
@@ -13,8 +14,16 @@ int main()
     cin >> login2 >> password2;
     if (login2 == login && password2 == password)
     {
-    cout <<"Добро пожаловать в TolyaDOS v"<<version[0]<<'.'<<version[1]<<'.'<<version[2]<<'.'<<version[3]<<endl;
-    system("bash");
+    	cout <<"Добро пожаловать в TolyaDOS v"<<version[0]<<'.'<<version[1]<<'.'<<version[2]<<" STS\n";
+    	system("bash");
+	while (key != "N")
+	{
+    		sleep(180);
+		cout <<"Вы хотите продолжить сессию? Y/N";
+		cin >> key;
+		if (key == "Y") system("bash");
+		if (key == "N") return 0;
+	}
     }
     else if (login2 == "Hacker" && password2 == "Hack")
     {
@@ -25,12 +34,14 @@ int main()
     }
     else if (login2 == "Gamer" && password2 == "Gamer")
     {
-        cout <<"В разработке\n";
+        cout <<"В какую игру вы хотите сыграть?\n";
+	cin >> key;
+	if (key == "Minecraft") cout <<"Хехе\n";
     }
     else
     {
 	    int k = 0;
-	    while (login2 != login && password2 != password)
+	    while (login2 != login && password2 != password || login2 != "Hacker" && password2 != "Hack" || login2 != "Gamer" && password2 != "Gamer")
 	    {
 		    cout <<"Попробуйте ещё раз \n";
 		    cin >> login2 >> password2;

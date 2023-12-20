@@ -1,18 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #include "games.h"
-void checkpass(char* password)
-{
-    char* validpass = "passwd";
-    if (password == validpass) {
-        puts("Добро пожаловать в TolyaDOS!\n");
-    }
-}
 int main()
 {
     char* key = "\0";
-    scanf("%s", key);
-    checkpass (key);
     
     while (key != "quit")
     {

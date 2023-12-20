@@ -29,5 +29,17 @@ int main()
         {
             puts("game \n ugadaika \n");
         }
+        if (key == "author")
+        {
+            puts("Tolya-DOS  Copyright (C) 2023  Anatoliy6463\nThis program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.\nThis is free software, and you are welcome to redistribute itunder certain conditions; type `show c' for details.");
+        }
+        if (key == "show w")
+        {
+            puts("TolyaDOS comes with ABSOLUTELY NO WARRANTY, to the extent permitted by applicable law.");
+        }
+        if (key == "show c")
+        {
+            puts("TolyaDOS is protected by GNU GPL v3 which is following four freedoms: The freedom to run the program as you wish, for any purpose.\nThe freedom to study how the program works, and change it so it does your computing as you wish. Access to the source code is a precondition for this.\nThe freedom to redistribute copies so you can help your neighbor.\nThe freedom to distribute copies of your modified versions to others. By doing this you can give the whole community a chance to benefit from your changes. Access to the source code is a precondition for this.\n");
+        }
     }
 }

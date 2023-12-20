@@ -8,10 +8,12 @@ void checkpass(char* password)
         puts("Добро пожаловать в TolyaDOS!\n");
     }
 }
-int main(int argc, char** argv)
+int main()
 {
-    checkpass (argv[1]);
     char* key = "\0";
+    scanf("%s", key);
+    checkpass (key);
+    
     while (key != "quit")
     {
         puts("Введите команду или quit для выхода\n");

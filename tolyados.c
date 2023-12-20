@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "games.h"
-#include "apps.h"
 void checkpass(char* password)
 {
     char* validpass = "passwd";

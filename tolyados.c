@@ -12,7 +12,7 @@ int main(int argc, char** argv)
 {
     checkpass (argv[1]);
     char* key = "\0";
-    while (key != "exit")
+    while (key != "quit")
     {
         puts("Введите команду или quit для выхода\n");
         scanf("%s", key);
@@ -22,11 +22,19 @@ int main(int argc, char** argv)
         }
         if (key == "ugadaika")
         {
-            ugadaika();
+            puts("Выберите сложность: ультра-лёгкая - 1, лёгкая - 2, нормальная - 3, сложная - 4, ультра-сложная - 5, экстремальная - 6");
+            int choice;
+            scanf("%d", &choice);
+            if (choice == 1) ugadaika_ultra_easy();
+            if (choice == 2) ugadaika_easy();
+            if (choice == 3) ugadaika_normal();
+            if (choice == 4) ugadaika_hard();
+            if (choice == 5) ugadaika_ultra_hard();
+            if (choice == 6) ugadaika_extreme();
         }
         if (key == "ls")
         {
-            cout <<"game \n ugadaika \n nword\n";
+            puts("game \n ugadaika \n");
         }
     }
 }

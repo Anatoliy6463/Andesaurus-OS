@@ -1,9 +1,8 @@
 #include <stdio.h>
-#include "keys.h"
-#include "events.h"
+#include "extra/keys.h"
+#include "extra/events.h"
 #include <stdlib.h>
 #include <time.h>
-
 void game() // T-GameC
 {
   int X = 1;

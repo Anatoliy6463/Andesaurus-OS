@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 void exponentiation(double a, double a2, double n)
 {
     a2 = a;
@@ -30,4 +31,44 @@ int calculator()
     }
     printf("%lg\n", c);
     return (0);
+}
+void edit_line(char* buffer, int current_line)
+{
+  for (int i = 0; i < current_line; i++) {
+    strchr(buffer, '\n') + 1;
+  }
+  char* line_end = strchr(buffer, '\n');
+  char saved[2048] = {0};
+  strcpy(saved, line_end);
+  scanf("%2047[^\n]%*c", buffer);
+  strcpy(buffer + strlen(buffer), saved);
+}
+int stxt(char filenam[256])
+{
+  FILE *f;
+  if ((f = fopen(filenam, "r+")) == NULL)
+  {
+    puts("ФАЙЛ НЕ НАЙДЕН, ПОЖАЛУЙСТА, ЧТОБЫ СОЗДАТЬ ФАЙЛ, НАЖМИТЕ ЛЮБУЮ КЛАВИШУ");
+    getchar();
+    f = fopen(filenam, "a+");
+    char newfile[25];
+    for (int i = 0; i < 25; i++)
+    {
+        newfile[i] = ' ';
+    }
+    return(0);
+  }
+  else {
+    f = fopen(filenam, "r+");
+  }
+  char buffer[2048] = {0};
+  fread(buffer, 2048, 1, f);
+  fclose(f);
+  printf("Состав:\n%s\n", buffer);
+  int current_line = 0;
+  scanf ("%d", &current_line);
+  edit_line(buffer, current_line);
+  f = fopen(filenam, "w");
+  fwrite(buffer, strlen(buffer), 1, f);
+  fclose(f);
 }

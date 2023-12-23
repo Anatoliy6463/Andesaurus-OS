@@ -7,13 +7,14 @@
 #include "user-keyfrases.h"
 #include <time.h>
 #include <stdlib.h>
-#include "cube.h"
+#include "cubensquare.h"
 int main()
 {
-    char in[255];
+    char in[1025];
+    time_t t;
     while(1)
     {
-        scanf("%[^\n]%*c", in);
+        scanf("%1024[^\n]%*c", in);
         if (strcmp(in, "ugadaika") == 0)
         {
             int a = 0;
@@ -21,55 +22,54 @@ int main()
             scanf("%d", &a);
             if (a == 1)
                 ugadaika_ultra_easy();
-            if (a == 2)
+            else if (a == 2)
                 ugadaika_easy();
-            if (a == 3)
+            else if (a == 3)
                 ugadaika_normal();
-            if (a == 4)
+            else if (a == 4)
                 ugadaika_hard();
-            if (a == 5)
+            else if (a == 5)
                 ugadaika_ultra_hard();
-            if (a == 6)
+            else if (a == 6)
                 ugadaika_extreme();
-            if (a == 0)
+            else if (a == 0)
             {
                 puts("Отмена...\n");
+                in[0] = '\0';
             }
         }
 
-        if (strcmp(in, "info") == 0)
+        else if (strcmp(in, "info") == 0)
         {
-            puts("TolyaDOS  Copyright (C) 2023  Anatoliy6463\nThis program comes with ABSOLUTELY NO WARRANTY; for details, type \"warranty\"\nThis is free software, and you are welcome to redistribute it under certain conditions;\n");
+            puts("SestoOS  Copyright (C) 2023  Anatoliy6463\nThis program comes with ABSOLUTELY NO WARRANTY; for details, type \"warranty\"\nThis is free software, and you are welcome to redistribute it under certain conditions;\n");
         }
-        if (strcmp(in, "warranty") == 0)
+        else if (strcmp(in, "warranty") == 0)
         {
-             puts("TolyaDOS comes with ABSOLUTELY NO WARRANTY, to the extent permitted by applicable law.\n");
+            puts("SestoOS comes with ABSOLUTELY NO WARRANTY, to the extent permitted by applicable law.\n");
         }
-        if (strcmp(in, "exit") == 0)
+        else if (strcmp(in, "exit") == 0)
         {
-            int time = 0;
-            scanf("%d", &time);
-            shutdown(time);
+            shutdown(5);
             break;
         }
-        if (strcmp(in, "wait") == 0)
+        else if (strcmp(in, "wait") == 0)
         {
             waitmode();
         }
-        if (strcmp(in, "calc") == 0)
+        else if (strcmp(in, "calc") == 0)
         {
             calculator();
         }
-        if (strcmp(in, "game") == 0)
+        else if (strcmp(in, "game") == 0)
         {
             game();
         }
-        if(strcmp(in, "007") == 0) printf("%c", '\007');
-        if(strcmp(in, "Когда выйдет Электроманьяк?") == 0)
+        else if(strcmp(in, "007") == 0) printf("%c", '\007');
+        else if(strcmp(in, "Когда выйдет Электроманьяк?") == 0)
         {
             puts("В январе 2024\n");
         }
-        if(strcmp(in, "random_number") == 0)
+        else if(strcmp(in, "random_number") == 0)
         {
             int n = 0;
             puts("Введите количество случайных чисел\n");
@@ -92,11 +92,29 @@ int main()
                 printf("%d", random_number[i]);
             }
         }
-        
-        if(strcmp(in, "square_gen") == 0)
+        else if(strcmp(in, "square_gen") == 0)
         {
             int n;
             square_gen_and_print(n);
+        }
+        else if(strcmp(in, "help") == 0)
+        {
+            puts("ugadaika – игра «Угадайка»\ninfo – информация о системе\nexit – выход\ncalc – калькулятор\ngame – T-GameC\n007 – звук предупреждения системы\nrandom_number – генератор случайных чисел\nsquare_gen – генератор квадрата\ntime – текущее время\n");
+        }
+        else if (strcmp(in, "time") == 0)
+        {
+            time(&t);
+            printf("%s\n", ctime(&t));
+        }
+        else if (strcmp(in, "stxt") == 0)
+        {
+            char filenam[256];
+            puts("Введите название файла:\t");
+            scanf("%255[^\n]%*c", filenam);
+            stxt(filenam);
+        }
+        else {
+            printf("%s, команда не найдена, для получения списка команд, введите \"help\"\n", in);
         }
     }
 }

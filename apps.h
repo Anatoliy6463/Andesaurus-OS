@@ -1,6 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include <string.h>
+void file_create(char filenam[256])
+{
+    FILE *f = fopen(filenam, "w");
+    if ((f = fopen(filenam, "w")) != NULL)
+    {
+      puts("ОШИБКА №1, ФАЙЛ НЕПРАВИЛЬНО СОЗДАН, ДЛЯ ПОЛУЧЕНИЯ ИНФОРМАЦИИ, ПЕРЕЙДИТЕ ПО ССЫЛКЕ");
+    }
+}
 void exponentiation(double a, double a2, double n)
 {
     a2 = a;
@@ -48,15 +57,9 @@ int stxt(char filenam[256])
   FILE *f;
   if ((f = fopen(filenam, "r+")) == NULL)
   {
-    puts("ФАЙЛ НЕ НАЙДЕН, ПОЖАЛУЙСТА, ЧТОБЫ СОЗДАТЬ ФАЙЛ, НАЖМИТЕ ЛЮБУЮ КЛАВИШУ");
+    file_create(filenam);
     getchar();
-    f = fopen(filenam, "a+");
-    char newfile[25];
-    for (int i = 0; i < 25; i++)
-    {
-        newfile[i] = ' ';
-    }
-    return(0);
+    f = fopen(filenam, "r+");
   }
   else {
     f = fopen(filenam, "r+");
@@ -71,4 +74,25 @@ int stxt(char filenam[256])
   f = fopen(filenam, "w");
   fwrite(buffer, strlen(buffer), 1, f);
   fclose(f);
+}
+void square_gen_and_print(int n)
+{
+    puts("Введите длину грани квадрата:\t");
+    scanf("%d", &n);
+    char cube[n][n];
+    puts("Запускается генерация куба... подождите\n");
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+            cube[i][j] = '*';
+    }
+    puts("Запускается печать куба...\n\n\n");
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+            printf("%c", cube[i][j]);
+        printf("%c", '\n');
+    }
+    puts("Печать куба завершена!");
+    return;
 }

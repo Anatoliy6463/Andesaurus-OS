@@ -1,11 +1,7 @@
-#include <complex.h>
 #include <stdio.h>
 #include <unistd.h>
-int shutdown(int time)
-{
-    sleep(time);
-    puts("Shutting down the system\n\007");
-}
+#include <stdlib.h>
+#include <time.h>
 int waitmode()
 {
     while(1)
@@ -14,4 +10,11 @@ int waitmode()
         getchar();
         break;
     }
+}
+void killsys()
+{
+    srand(time(NULL));
+    puts("Kernel panic!!!\n");
+    sleep(rand()%10 + 1);
+    return;
 }

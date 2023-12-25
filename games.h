@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include "keys.h"
-#include "events.h"
+#include "extra/keys.h"
+#include "extra/events.h"
 #include <stdlib.h>
 #include <time.h>
-void game() // T-GameC
+void game() // T-GameC Protected by GNU LGPL v2.1
 {
   int X = 1;
   int Y = 1;
@@ -43,7 +43,7 @@ void game() // T-GameC
     }
   }
 }
-void ugadaika_ultra_easy()
+void ugadaika_ultra_easy() // This, and other "ugadaika"s are protected by MIT License
 {
     srand(time(NULL));
     int n = rand()%25 + 1;
@@ -163,22 +163,4 @@ void ugadaika_extreme()
             break;
         }
     }
-}
-int biletik()
-{
-    int nomer = 0;
-    puts("Введите шестизначное число\n");
-    scanf("%d", &nomer);
-    int a=0, b=0, c=0, d=0, e=0, f=0;
-    a = nomer % 10;
-    b = (nomer / 10) % 10;
-    c = (nomer / 100) % 10;
-    d = (nomer / 1000) % 10;
-    e = (nomer / 10000) % 10;
-    f = (nomer / 100000) % 10;
-    if (a + b + c == e + d + f)
-        cout << "Билет счастливый! \n";
-    else
-        cout << "Билет несчастливый. \n";
-    return 0;
 }

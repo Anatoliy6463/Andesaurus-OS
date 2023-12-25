@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "extra/keys.h"
-#include "extra/events.h"
+#include "keys.h"
+#include "events.h"
 #include <stdlib.h>
 #include <time.h>
 void game() // T-GameC

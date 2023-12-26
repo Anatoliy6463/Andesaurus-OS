@@ -3,6 +3,7 @@
 #include "extra/events.h"
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
 void game() // T-GameC Protected by GNU LGPL v2.1
 {
   int X = 1;
@@ -14,6 +15,9 @@ void game() // T-GameC Protected by GNU LGPL v2.1
   int money = 50;
   int ta = 0;
   int result;
+  int dragonhp = 1000;
+  bool armor = false;
+  bool sword = false;
   while (inp != 'q')
   {
     inp = getchar();
@@ -25,9 +29,7 @@ void game() // T-GameC Protected by GNU LGPL v2.1
     persikinteract(X, Y, persiki, hunger, inp);
     if (X % 15 == 0 && Y % 15 == 0)
     {
-      break;
-      shop(money, ta, persiki);
-      continue;
+      shop(money, ta, persiki, armor, sword);
     }
     if (hunger < 0) heal(hunger, hp);
     if (hunger > 100) damage(hunger, hp);
@@ -40,6 +42,10 @@ void game() // T-GameC Protected by GNU LGPL v2.1
     {
       check(ta, result);
       if (result == 1) teleport(X, Y, result, money);  
+    }
+    if (X >= 40 && Y <= 50 && X <= 70 && Y >= -10)
+    {
+        dragon(hp, inp, money, dragonhp, armor, sword);
     }
   }
 }

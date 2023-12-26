@@ -106,6 +106,14 @@ int main()
             puts("\n");
             scanf("%1024[^\n]%*c", in);
         }
+        else if (strcmp(in, "max_min") == 0) 
+        {
+            int a;
+            puts("Сколько чисел вы хотели бы сравнить?\n");
+            scanf("%d", &a);
+            int n[a];
+            max_and_min(a, n);
+        }
         else if(strcmp(in, "square_gen") == 0)
         {
             int n;
@@ -114,7 +122,7 @@ int main()
         }
         else if(strcmp(in, "help") == 0)
         {
-            puts("ugadaika – игра «Угадайка»\ninfo – информация о системе\nexit – выход\ncalc – калькулятор\ngame – T-GameC\n007 – звук предупреждения системы\nrandom_number – генератор случайных чисел\nsquare_gen – генератор квадрата\ntime – текущее время\n");
+            puts("ugadaika – игра «Угадайка»\ninfo – информация о системе\nexit – выход\ncalc – калькулятор\ngame – T-GameC\n007 – звук предупреждения системы\nrandom_number – генератор случайных чисел\nsquare_gen – генератор квадрата\ntime – текущее время\nmax_min – нахождение максимального и минимального числа\n");
             scanf("%1024[^\n]%*c", in);
         }
         else if (strcmp(in, "time") == 0)

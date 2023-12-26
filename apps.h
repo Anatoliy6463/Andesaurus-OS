@@ -101,3 +101,19 @@ void square_gen_and_print(int n)
     puts("Печать куба завершена!");
     return;
 }
+void max_and_min(int a, int n[])
+{
+  int MAX = 0;
+  int MIN = 2147483647;
+  double med = 0.00;
+  for (int i = 0; i < a; i++)
+  {
+    scanf("%d", &n[i]);
+    med += n[i];
+    if (n[i] > MAX) MAX = n[i];
+    if (n[i] < MIN) MIN = n[i];
+  }
+  med /= a;
+  printf("MAX=%d\nMIN=%d\nСреднее арифметическое:%g\n\007", MAX, MIN, med);
+
+}

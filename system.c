@@ -41,7 +41,7 @@ int main()
 
         else if (strcmp(in, "info") == 0)
         {
-            puts("SestoOS  Copyright (C) 2023  Anatoliy6463\nThis program comes with ABSOLUTELY NO WARRANTY; for details, type \"show wkil\"\nThis is free software, and you are welcome to redistribute it under certain conditions;\n");
+            puts("SestoOS  Copyright (C) 2023  Anatoliy6463\nThis program comes with ABSOLUTELY NO WARRANTY; for details, type \"show w\"\nThis is free software, and you are welcome to redistribute it under certain conditions;\n");
             scanf("%1024[^\n]%*c", in);
         }
         else if (strcmp(in, "show w") == 0)

@@ -8,13 +8,36 @@
 #include <time.h>
 #include <stdlib.h>
 #include "packagemanager.h"
+int login(char[], char[]);
+int login(char passwd[256], char validpass[256])
+{
+    FILE *f = fopen("rootpass.txt", "r");
+    fgets(validpass, 255, f);
+    puts("Введите пароль:\t");
+    scanf("%15[^\n]%*c", passwd);
+}
 int main()
 {
+    char passwd[256], validpass[256];
+    login(passwd, validpass);
+    if (strcmp(passwd, validpass) == 0)
+    {
+        puts("Запуск...\n");
+    }
     char in[1025];
+    puts("[Объявление]Объявление переменной для ввода данных...\nУспешно!\n");
     int inst[1024] = {0};
     int root = 0;
+    puts("[Объявление]Объявление переменной для разграничения прав доступа...\nУспешно!\n");
     int inputa = 1;
+    puts("[Объявление]Объявление переменной для отображения времени...\nУспешно!\n");
     time_t t;
+    puts("[Запуск]Запуск цикла...\nУспешно!\n");
+    for (int i = 0; i < 101; i++)
+    {
+        printf("Загрузка, %d%%\n", i);
+    }
+    system("clear");
     while(1)
     {
         if (root == 0)
@@ -58,11 +81,9 @@ int main()
                 FILE* f = fopen("rootpass.txt", "r");
                 if (root == 0) 
                 {
-                    char password[16] = {0};
-                    char inputpass[16] = {0};
-                    fgets(password, 15, f);
+                    fgets(validpass, 2555, f);
                     puts("Введите пароль:\t");
-                    scanf("%15[^\n]%*c", inputpass);
+                    scanf("%255[^\n]%*c", inputpass);
                     if (strcmp(password, inputpass) == 0)
                     {
                         root = 1;
@@ -282,7 +303,7 @@ int main()
         }
         else if (strcmp(in, "stxt") == 0 && inst[STXT] == 2)
         {
-            puts("Программа \"stxt\" найдена, но зависимость \"stxt-filecreate\" не установлена, её можно установить с помощью команды sesto install stxt, а затем sesto install stxt-filecreate");
+            puts("Программа \"stxt\" найдена, но зависимость \"stxt-filecreate\" не установлена, её можно установить с помощью команды sesto install stxt-filecreate");
             scanf("%1024[^\n]%*c", in);
         }
         else if (strcmp(in, "kill system") == 0)

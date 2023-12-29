@@ -6,10 +6,8 @@ int main()
     char pass[16] = {0};
     scanf("%15[^\n]%*c", pass);
     FILE *f = fopen("rootpass.txt", "r+");
-    for (int i = 0; i < 15; i++)
-    {
-        fprintf(f, "%c", pass[i]);
-    }
+    fputs(pass, f);
+    fclose(f);
     puts("\nТеперь вы можете использовать Sesto-OS!\n");  
     system("./sys");
 }

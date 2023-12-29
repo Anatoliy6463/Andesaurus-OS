@@ -13,6 +13,7 @@ int main()
     char in[1025];
     int inst[1024] = {0};
     int root = 0;
+    int inputa = 1;
     time_t t;
     while(1)
     {
@@ -20,9 +21,11 @@ int main()
             printf("user@sessh:\t");
         if (root == 1)
             printf("root@sessh:\t");
-        scanf("%1024[^\n]%*c", in);
+        if (inputa == 1)
+            scanf("%1024[^\n]%*c", in);
         if (strcmp(in, "ugadaika") == 0 && inst[UGADAIKA] == 1)
         {
+            inputa = 0;
             int a = 0;
             puts("Выберите сложность: 1, 2, 3, 4, 5, 6 или введите 0 для отмены\n");
             scanf("%d", &a);
@@ -42,13 +45,48 @@ int main()
             {
                 puts("Отмена...\n");
                 in[0] = '\0';
+                inputa = 1;
                 scanf("%1024[^\n]%*c", in);
             }
         }
         else if (strcmp(in, "change_usr") == 0)
         {
-            if (root == 0) root = 1;
-            if (root == 1) root = 0;
+            inputa = 0;
+            int k = 0;
+            while (k <= 3)
+            {
+                FILE* f = fopen("rootpass.txt", "r");
+                if (root == 0) 
+                {
+                    char password[16] = {0};
+                    char inputpass[16] = {0};
+                    fgets(password, 15, f);
+                    puts("Введите пароль:\t");
+                    scanf("%15[^\n]%*c", inputpass);
+                    if (strcmp(password, inputpass) == 0)
+                    {
+                        root = 1;
+                        inputa = 1;
+                        printf("root@sessh:\t");
+                        scanf("%1024[^\n]%*c", in);
+                    }
+                    else {
+                        k++;
+                        puts("ВНИМАНИЕ!!! ВВЕДЁН НЕПРАВИЛЬНЫЙ ПАРОЛЬ!!!");
+                    }
+                    if (k == 3)
+                    {
+                        break;
+                    }
+                }
+            }
+            if (root == 1) 
+            {
+                root = 0;
+                inputa = 1;
+                printf("user@sessh:\t");
+                scanf("%1024[^\n]%*c", in);
+            }
         }
         else if (strcmp(in, "ugadaika") == 0 && inst[UGADAIKA] == 0)
         {

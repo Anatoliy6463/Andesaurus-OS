@@ -11,13 +11,15 @@
 int main()
 {
     char in[1025];
-    char accounts[49][3] = {"user", "root", "tmp"};
-    char activeaccount[49] = {accounts[0][0]};
     int inst[1024] = {0};
+    int root = 0;
     time_t t;
     while(1)
     {
-        printf("\n%s@sessh:\t", activeaccount);
+        if (root == 0)
+            printf("user@sessh:\t");
+        if (root == 1)
+            printf("root@sessh:\t");
         scanf("%1024[^\n]%*c", in);
         if (strcmp(in, "ugadaika") == 0 && inst[UGADAIKA] == 1)
         {
@@ -43,98 +45,65 @@ int main()
                 scanf("%1024[^\n]%*c", in);
             }
         }
-        else if (strcmp(in, "change_usr") == 0 && strcmp(activeaccount, "user") == 0)
+        else if (strcmp(in, "change_usr") == 0)
         {
-            for (int i = 0; i < 4; i++)
-            {
-                activeaccount[i] = accounts[i][1];
-            }
-            continue;
-            if (strcmp(activeaccount, "root") == 0)
-            {
-                puts("Переключение аккаунта прошло успешно!\n");
-            }
-            if (strcmp(activeaccount, "som") == 0)
-            {
-                for (int i = 0; i < 4; i++)
-                {
-                    activeaccount[i] = accounts[i][1];
-                }
-                if (strcmp(activeaccount, "root") == 0)
-                {
-                    puts("Переключение аккаунта прошло успешно!\n");
-                }
-                else 
-                {
-                    for (int i = 0; i < 4; i++)
-                    {
-                        activeaccount[i] = accounts[i][1];
-                    }
-                    if (strcmp(activeaccount, "root") == 0)
-                    {
-                        puts("Переключение аккаунта прошло успешно!\n");
-                    }
-                    else 
-                    {
-                        puts("Переключение аккаунта произошло с ошибкой!\n");
-                    }
-                }
-            }
+            if (root == 0) root = 1;
+            if (root == 1) root = 0;
         }
         else if (strcmp(in, "ugadaika") == 0 && inst[UGADAIKA] == 0)
         {
             puts("Программа \"ugadaika\" не найдена, но её можно установить с помощью команды sesto install ugadaika");
             scanf("%1024[^\n]%*c", in);
         }
-        else if (strcmp(in, "sesto install ugadaika") == 0 && inst[UGADAIKA] == 0 && strcmp(activeaccount, "root") == 0)
+        else if (strcmp(in, "sesto install ugadaika") == 0 && inst[UGADAIKA] == 0 && root == 1)
         {
             puts("Установка \"ugadaika\"...\n");
             inst[UGADAIKA] = 1;
             puts("Установка завершена!\n");
         }
-        else if (strcmp(in, "sesto install calc") == 0 && inst[CALC] == 0 && strcmp(activeaccount, "root") == 0)
+        else if (strcmp(in, "sesto install calc") == 0 && inst[CALC] == 0 && root == 1)
         {
             puts("Установка \"calc\"...\n");
             inst[CALC] = 1;
             puts("Установка завершена!\n");
         }
-        else if (strcmp(in, "sesto install time") == 0 && inst[TIME] == 0 && strcmp(activeaccount, "root") == 0)
+        else if (strcmp(in, "sesto install time") == 0 && inst[TIME] == 0 && root == 1)
         {
             puts("Установка \"time\"...\n");
             inst[TIME] = 1;
             puts("Установка завершена!\n");
         }
-        else if (strcmp(in, "sesto install t-gamec") == 0 && inst[GAME] == 0 && strcmp(activeaccount, "root") == 0)
+        else if (strcmp(in, "sesto install t-gamec") == 0 && inst[GAME] == 0 && root == 1)
         {
             puts("Установка \"t-gamec\"...\n");
             inst[GAME] = 1;
             puts("Установка завершена!\n");
         }
-        else if (strcmp(in, "sesto install random_number") == 0 && inst[RANNUM] == 0 && strcmp(activeaccount, "root") == 0)
+        else if (strcmp(in, "sesto install random_number") == 0 && inst[RANNUM] == 0 && root == 1)
         {
             puts("Установка \"random_number\"...\n");
             inst[RANNUM] = 1;
             puts("Установка завершена!\n");
         }
-        else if (strcmp(in, "sesto install max_min") == 0 && inst[MAXMIN] == 0 && strcmp(activeaccount, "root") == 0)
+        else if (strcmp(in, "sesto install max_min") == 0 && inst[MAXMIN] == 0 && root == 1)
         {
             puts("Установка \"max_min\"...\n");
             inst[MAXMIN] = 1;
             puts("Установка завершена!\n");
         }
-        else if (strcmp(in, "sesto install square_gen_and_print") == 0 && inst[CUBE] == 0 && strcmp(activeaccount, "root") == 0)
+        else if (strcmp(in, "sesto install square_gen_and_print") == 0 && inst[CUBE] == 0 && root == 1)
         {
             puts("Установка \"square_gen_and_print\"...\n");
             inst[CUBE] = 1;
             puts("Установка завершена!\n");
         }
-        else if (strcmp(in, "sesto install stxt") == 0 && inst[STXT] == 0 && strcmp(activeaccount, "root") == 0)
+        else if (strcmp(in, "sesto install stxt") == 0 && inst[STXT] == 0 && root == 1)
         {
             puts("Установка \"stxt\"...\n");
             inst[STXT] = 2;
             puts("Установка завершена! Теперь нужно установить stxt-filecreate\n");
         }
-        else if (strcmp(in, "sesto install stxt-filecreate") == 0 && inst[STXT] == 2 && strcmp(activeaccount, "root") == 0)
+        else if (strcmp(in, "sesto install stxt-filecreate") == 0 && inst[STXT] == 2 && root == 1)
         {
             puts("Установка \"stxt-filecreate\"...\n");
             inst[STXT] = 1;
@@ -150,18 +119,10 @@ int main()
             puts("SestoOS comes with ABSOLUTELY NO WARRANTY, to the extent permitted by applicable law.\n");
             scanf("%1024[^\n]%*c", in);
         }
-        else if (strcmp(in, "exit") == 0 && strcmp(activeaccount, "user"))
+        else if (strcmp(in, "exit") == 0)
         {
-            sleep(5);
             puts("Shutdown....\n\007");
             break;
-        }
-        else if (strcmp(in, "exit") == 0 && strcmp(activeaccount, "root"))
-        {
-            activeaccount[0] = 'u';
-            activeaccount[1] = 's';
-            activeaccount[2] = 'e';
-            activeaccount[3] = 'r';
         }
         else if (strcmp(in, "wait") == 0)
         {

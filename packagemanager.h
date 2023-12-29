@@ -6,4 +6,3 @@ int MAXMIN = 4;
 int CUBE = 5;
 int TIME = 6;
 int STXT = 7;
-#include <stdio.h>

@@ -5,7 +5,6 @@
 void file_create(char filenam[256])
 {
     FILE *f = fopen(filenam, "w");
-    if ((f = fopen(filenam, "w")) != NULL)
     {
       puts("ОШИБКА №1, ФАЙЛ НЕПРАВИЛЬНО СОЗДАН, ДЛЯ ПОЛУЧЕНИЯ ИНФОРМАЦИИ, ПЕРЕЙДИТЕ ПО ССЫЛКЕ");
     }
@@ -104,7 +103,7 @@ void square_gen_and_print(int n)
 void max_and_min(int a, int n[])
 {
   int MAX = 0;
-  int MIN = 2147483647;
+  int MIN = 1048576;
   double med = 0.00;
   for (int i = 0; i < a; i++)
   {
@@ -115,5 +114,4 @@ void max_and_min(int a, int n[])
   }
   med /= a;
   printf("MAX=%d\nMIN=%d\nСреднее арифметическое:%g\n\007", MAX, MIN, med);
-
 }

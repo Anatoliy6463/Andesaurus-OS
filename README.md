@@ -6,7 +6,7 @@ NOTE 1:
  I NEED ASSEMBLY PROGRAMMERS TO MAKE THE KERNEL
 NOTE 2:
  I NEED PYTHON/VERY GOOD C PROGRAMMERS TO MAKE THE PACKAGE MANAGER
-Sesto-OS is a great project
+
 # RU
 # Sesto-OS
 Проект нацеленный на создание Unix-подобной операционной системы с нуля и доведения её до полной стабильности, отсутствия багов и удобства использования даже без графического интерфейса. Я уже создал несколько приложений, игр и эмулятор терминала

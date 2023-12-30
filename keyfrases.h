@@ -2,6 +2,10 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <time.h>
+/*
+*    Command list for Sesto-OS.
+*    Copyright (C) 2023  Andesaurus-Sesto
+*/
 int waitmode()
 {
     while(1)

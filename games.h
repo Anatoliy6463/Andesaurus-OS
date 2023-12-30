@@ -4,8 +4,16 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
+/*
+*    Simple games for Sesto-OS.
+*    Copyright (C) 2023  Andesaurus-Sesto
+*/
 void game() // T-GameC Protected by GNU LGPL v2.1
 {
+  /*
+  *    T-GameC, a simple console game.
+  *    Copyright (C) 2022, 2023  Anatoliy6463
+  */
   int X = 1;
   int Y = 1;
   int inp;
@@ -49,6 +57,10 @@ void game() // T-GameC Protected by GNU LGPL v2.1
     }
   }
 }
+/*
+*    Ugadaika game where user needs to guess the number
+*    Copyright (C) 2022, 2023  Anatoliy6463
+*/
 void ugadaika_ultra_easy() // This, and other "ugadaika"s are protected by MIT License
 {
     srand(time(NULL));

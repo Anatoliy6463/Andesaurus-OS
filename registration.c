@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 /*
-*    Simple registration program for Sesto-OS.
-*    Copyright (C) 2023  Andesaurus-Sesto
+*    Simple registration program for Andesaurus-OS.
+*    Copyright (C) 2023  AndesaurusSoft
 */
 int main()
 {

@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <time.h>
 /*
-*    Command list for Sesto-OS.
-*    Copyright (C) 2023  Andesaurus-Sesto
+*    Command list for Andesaurus-OS.
+*    Copyright (C) 2023  AndesaurusSoft
 */
 int waitmode()
 {

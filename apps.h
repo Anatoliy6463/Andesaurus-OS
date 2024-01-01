@@ -3,8 +3,8 @@
 #include <math.h>
 #include <string.h>
 /*
-*    Simple apps for Sesto-OS.
-*    Copyright (C) 2023  Andesaurus-Sesto
+*    Simple apps for Andesaurus-OS.
+*    Copyright (C) 2023  AndesaurusSoft
 */
 void file_create(char filenam[256])
 {
@@ -59,11 +59,9 @@ void edit_line(char* buffer, int current_line)
 int stxt(char filenam[256])
 {
   FILE *f;
-  if ((f = fopen(filenam, "r+")) == NULL)
+  if (fopen(filenam, "r+") == NULL)
   {
-    file_create(filenam);
-    getchar();
-    f = fopen(filenam, "r+");
+    f = fopen(filenam, "w");
   }
   else {
     f = fopen(filenam, "r+");

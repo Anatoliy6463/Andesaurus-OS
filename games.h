@@ -5,7 +5,7 @@
 #include <time.h>
 #include <stdbool.h>
 /*
-*    Simple games for Sesto-OS.
+*    Simple games for Andesaurus-OS.
 *    Copyright (C) 2023  Andesaurus-Sesto
 */
 void game() // T-GameC Protected by GNU LGPL v2.1

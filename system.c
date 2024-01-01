@@ -9,8 +9,8 @@
 #include <stdlib.h>
 #include "packagemanager.h"
 /*
-*    Simple terminal emulator for Sesto-OS.
-*    Copyright (C) 2023  Andesaurus-Sesto
+*    Simple terminal emulator for Andesaurus-OS.
+*    Copyright (C) 2023  AndesaurusSoft
 */
 void login()
 {

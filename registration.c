@@ -12,7 +12,7 @@ int main()
     fgets(pass, 16, stdin);
         if ((strlen(pass) > 0) && (pass[strlen (pass) - 1] == '\n'))
             pass[strlen (pass) - 1] = '\0';
-    FILE *f = fopen("rootpass.txt", "r+");
+    FILE *f = fopen("rootpass.txt", "w");
     fputs(pass, f);
     fclose(f);
     puts("\nЗагрузка....\n");  

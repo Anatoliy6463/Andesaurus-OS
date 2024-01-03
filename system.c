@@ -2,7 +2,7 @@
 #include <string.h>
 #include "games.h"
 #include <unistd.h>
-#include "keyfrases.h"
+#include "keyf.h"
 #include "apps.h"
 #include "user-keyfrases.h"
 #include <time.h>
@@ -12,11 +12,6 @@
 *    Simple terminal emulator for Andesaurus-OS.
 *    Copyright (C) 2023  AndesaurusSoft
 */
-void deleten(char* in)
-{
-    if ((strlen(in) > 0) && (in[strlen (in) - 1] == '\n'))
-        in[strlen (in) - 1] = '\0';
-}
 void login()
 {
     puts("Введите пароль:\t");
@@ -25,21 +20,22 @@ void login()
     fgets(validpass, 15, f);
     char usrpass[16];
     fgets(usrpass, 1024, stdin);
-        deleten(usrpass);
+    deleten(usrpass);
     if (strcmp(validpass, usrpass) == 0)
     {
+        clear(usrpass);
         puts("Загрузка...\n");
     }
 }
 int main()
 {
     login();
-    char in[1025];
+    char in[1025] = {0};
     int inst[1024] = {0};
     time_t t;
     while(1)
     {
-        printf("user@stdins:\t");
+        printf("user@andesaurus:\t");
         fgets(in, 1024, stdin);
         deleten(in);
         if (strcmp(in, "ugadaika") == 0 && inst[UGADAIKA] == 1)

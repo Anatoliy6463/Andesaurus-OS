@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "extra/bell.h"
 #include <string.h>
 #include "games.h"
 #include <unistd.h>
@@ -24,7 +25,7 @@ void login()
     if (strcmp(validpass, usrpass) == 0)
     {
         clear(usrpass);
-        puts("Загрузка...\n");
+        println("Загрузка...");
     }
 }
 int main()
@@ -41,7 +42,7 @@ int main()
         if (strcmp(in, "ugadaika") == 0 && inst[UGADAIKA] == 1)
         {
             int a = 0;
-            puts("Выберите сложность: 1, 2, 3, 4, 5, 6 или введите 0 для отмены\n");
+            println("Выберите сложность: 1, 2, 3, 4, 5, 6 или введите 0 для отмены\n");
             scanf("%d", &a);
             if (a == 1)
                 ugadaika_ultra_easy();
@@ -59,73 +60,73 @@ int main()
             {
                 puts("Отмена...\n");
                 in[0] = '\0';
-                getchar();
+                fputs("\0", stdin);
             }
-            getchar();
+            fputs("\0", stdin);
         }
         if (strcmp(in, "ugadaika") == 0 && inst[UGADAIKA] == 0)
         {
-            puts("Программа \"ugadaika\" не найдена, но её можно установить с помощью команды pkg install ugadaika");
-            getchar();
+            println("Программа \"ugadaika\" не найдена, но её можно установить с помощью команды pkg install ugadaika");
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "pkg install random_number") == 0 && inst[RANNUM] == 0)
         {
-            puts("Установка \"random_number\"...\n");
+            println("Установка \"random_number\"...");
             inst[RANNUM] = 1;
-            puts("Установка завершена!\n");
-            getchar();
+            println("Установка завершена!");
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "pkg install max_min") == 0 && inst[MAXMIN] == 0)
         {
-            puts("Установка \"max_min\"...\n");
+            println("Установка \"max_min\"...");
             inst[MAXMIN] = 1;
-            puts("Установка завершена!\n");
-            getchar();
+            println("Установка завершена!");
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "pkg install square_gen_and_print") == 0 && inst[CUBE] == 0)
         {
-            puts("Установка \"square_gen_and_print\"...\n");
+            println("Установка \"square_gen_and_print\"...");
             inst[CUBE] = 1;
-            puts("Установка завершена!\n");
-            getchar();
+            println("Установка завершена!");
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "pkg install stxt") == 0 && inst[STXT] == 0)
         {
             puts("Установка \"stxt\"...\n");
             inst[STXT] = 2;
             puts("Установка завершена! Теперь нужно установить stxt-filecreate\n");
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "pkg install ugadaika") == 0 && inst[UGADAIKA] == 0)
         {
             puts("Установка \"ugadaika\"...\n");
             inst[UGADAIKA] = 1;
             puts("Установка завершена!\n");
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "pkg install t-gamec") == 0 && inst[GAME] == 0)
         {
             puts("Установка \"t-gamec\"...\n");
             inst[GAME] = 1;
             puts("Установка завершена!\n");
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "pkg install stxt-filecreate") == 0 && inst[STXT] == 2)
         {
             puts("Установка \"stxt-filecreate\"...\n");
             inst[STXT] = 1;
             puts("Установка завершена!\n");
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "info") == 0)
         {
             puts("AndesaurusOS  Copyright (C) 2023  Anatoliy6463\nThis program comes with ABSOLUTELY NO WARRANTY; for details, type \"show w\"\nThis is free software, and you are welcome to redistribute it under certain conditions;\n");
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "show w") == 0)
         {
             puts("AndesaurusOS comes with ABSOLUTELY NO WARRANTY, to the extent permitted by applicable law.\n");
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "exit") == 0)
         {
@@ -135,37 +136,37 @@ int main()
         else if (strcmp(in, "wait") == 0)
         {
             waitmode();
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "calc") == 0 && inst[CALC] == 1)
         {
             calculator();
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "calc") == 0 && inst[CALC] == 0)
         {
             puts("Программа \"calc\" не найдена, но её можно установить с помощью команды pkg install calc");
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "game") == 0 && inst[GAME] == 1)
         {
             game();
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "game") == 0 && inst[GAME] == 0)
         {
             puts("Программа \"game\" не найдена, но её можно установить с помощью команды pkg install t-gamec");
-            getchar();
+            fputs("\0", stdin);
         }
         else if(strcmp(in, "007") == 0) 
         {
             printf("%c", '\007');
-            getchar();
+            fputs("\0", stdin);
         }
         else if(strcmp(in, "Когда выйдет Электроманьяк?") == 0)
         {
             puts("В январе 2024\n");
-            getchar();
+            fputs("\0", stdin);
         }
         else if(strcmp(in, "random_number") == 0 && inst[RANNUM] == 1)
         {
@@ -195,12 +196,12 @@ int main()
                 printf("%d", random_number[i]);
             }
             puts("\n");
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "random_number") == 0 && inst[RANNUM] == 0)
         {
             puts("Программа \"random_number\" не найдена, но её можно установить с помощью команды pkg install random_number");
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "max_min") == 0 && inst[MAXMIN] == 1) 
         {
@@ -209,7 +210,7 @@ int main()
             scanf("%d", &a);
             int n[a];
             max_and_min(a, n);
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "file_read") == 0)
         {
@@ -223,10 +224,10 @@ int main()
             {
                 puts("Не удалось найти файл\n\007Создать файл? [y/N]");
                 int vb;
-                vb = getchar();
+                vb = fputs("\0", stdin);
                 if (vb == 'y' || vb == 'Y')
                     f = fopen(filenam, "w");
-                getchar();
+                fputs("\0", stdin);
             }
             else {
                 f = fopen(filenam, "r");
@@ -234,40 +235,40 @@ int main()
                 fread(buffer, 2048, 1, f);
                 fclose(f);
                 printf("Состав:\n%s\n", buffer);
-                getchar();
+                fputs("\0", stdin);
             }
         }
         else if (strcmp(in, "max_min") == 0 && inst[MAXMIN] == 0)
         {
             puts("Программа \"max_min\" не найдена, но её можно установить с помощью команды pkg install max_min");
-            getchar();
+            fputs("\0", stdin);
         }
         else if(strcmp(in, "square_gen") == 0 && inst[CUBE] == 1)
         {
             int n[2];
             square_gen_and_print(n);
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "square_gen") == 0 && inst[CUBE] == 0)
         {
             puts("Программа \"square_gen\" не найдена, но её можно установить с помощью команды pkg install square_gen_and_print");
-            getchar();
+            fputs("\0", stdin);
         }
         else if(strcmp(in, "help") == 0)
         {
             puts("ugadaika – игра «Угадайка»\nchange_usr – сменить пользователя\ninfo – информация о системе\nexit – выход\ncalc – калькулятор\ngame – T-GameC\n007 – звук предупреждения системы\nrandom_number – генератор случайных чисел\nsquare_gen – генератор квадрата\ntime – текущее время\nmax_min – нахождение максимального и минимального числа\n");
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "time") == 0 && inst[TIME] == 1)
         {
             time(&t);
             printf("%s\n", ctime(&t));
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "time") == 0 && inst[TIME] == 0)
         {
             puts("Программа \"time\" не найдена, но её можно установить с помощью команды pkg install time");
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "stxt") == 0 && inst[STXT] == 1)
         {
@@ -279,12 +280,12 @@ int main()
         else if (strcmp(in, "stxt") == 0 && inst[STXT] == 0)
         {
             puts("Программа \"stxt\" не найдена, но её можно установить с помощью команды pkg install stxt, а затем pkg install stxt-filecreate");
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "stxt") == 0 && inst[STXT] == 2)
         {
             puts("Программа \"stxt\" найдена, но зависимость \"stxt-filecreate\" не установлена, её можно установить с помощью команды pkg install stxt, а затем pkg install stxt-filecreate");
-            getchar();
+            fputs("\0", stdin);
         }
         else if (strcmp(in, "kill system") == 0)
         {
@@ -293,7 +294,7 @@ int main()
         }
         else {
             printf("%s, команда не найдена, для получения списка команд, введите \"help\"\n", in);
-            getchar();
+            fputs("\0", stdin);
         }
     }
 }

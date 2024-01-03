@@ -1,6 +1,6 @@
 # EN
 # Andesaurus-OS
-Project aimed at making Unix-like system from zero and to make it stable and easy to use even without GUI. I already wrote some apps, games and a terminal emulator.
+Project aimed at developing Unix-like system from zero and to make it stable and easy to use even without GUI. I already wrote some apps, games and a terminal emulator.
 
 NOTE 1:
  I NEED ASSEMBLY PROGRAMMERS TO MAKE THE KERNEL

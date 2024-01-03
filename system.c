@@ -12,6 +12,11 @@
 *    Simple terminal emulator for Andesaurus-OS.
 *    Copyright (C) 2023  AndesaurusSoft
 */
+void deleten(char* in)
+{
+    if ((strlen(in) > 0) && (in[strlen (in) - 1] == '\n'))
+        in[strlen (in) - 1] = '\0';
+}
 void login()
 {
     puts("Введите пароль:\t");
@@ -20,8 +25,7 @@ void login()
     fgets(validpass, 15, f);
     char usrpass[16];
     fgets(usrpass, 1024, stdin);
-        if ((strlen(usrpass) > 0) && (usrpass[strlen (usrpass) - 1] == '\n'))
-            usrpass[strlen (usrpass) - 1] = '\0';
+        deleten(usrpass);
     if (strcmp(validpass, usrpass) == 0)
     {
         puts("Загрузка...\n");
@@ -35,10 +39,9 @@ int main()
     time_t t;
     while(1)
     {
-        printf("user@terminal:\t");
+        printf("user@stdins:\t");
         fgets(in, 1024, stdin);
-        if ((strlen(in) > 0) && (in[strlen (in) - 1] == '\n'))
-            in[strlen (in) - 1] = '\0';
+        deleten(in);
         if (strcmp(in, "ugadaika") == 0 && inst[UGADAIKA] == 1)
         {
             int a = 0;
@@ -120,12 +123,12 @@ int main()
         }
         else if (strcmp(in, "info") == 0)
         {
-            puts("SestoOS  Copyright (C) 2023  Anatoliy6463\nThis program comes with ABSOLUTELY NO WARRANTY; for details, type \"show w\"\nThis is free software, and you are welcome to redistribute it under certain conditions;\n");
+            puts("AndesaurusOS  Copyright (C) 2023  Anatoliy6463\nThis program comes with ABSOLUTELY NO WARRANTY; for details, type \"show w\"\nThis is free software, and you are welcome to redistribute it under certain conditions;\n");
             getchar();
         }
         else if (strcmp(in, "show w") == 0)
         {
-            puts("SestoOS comes with ABSOLUTELY NO WARRANTY, to the extent permitted by applicable law.\n");
+            puts("AndesaurusOS comes with ABSOLUTELY NO WARRANTY, to the extent permitted by applicable law.\n");
             getchar();
         }
         else if (strcmp(in, "exit") == 0)
@@ -245,7 +248,7 @@ int main()
         }
         else if(strcmp(in, "square_gen") == 0 && inst[CUBE] == 1)
         {
-            int n;
+            int n[2];
             square_gen_and_print(n);
             getchar();
         }

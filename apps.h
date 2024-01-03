@@ -11,7 +11,8 @@ void file_create(char filenam[256])
     FILE *f = fopen(filenam, "w");
     if ((f = fopen(filenam, "r")) != NULL)
     {
-      puts("ОШИБКА №1, ФАЙЛ НЕПРАВИЛЬНО СОЗДАН");
+      puts("ERROR #1, FILE WASN'T CREATED PROPERLY\007\n");
+      f = fopen(filenam, "w");
     }
 }
 void exponentiation(double a, double a2, double n)
@@ -36,7 +37,7 @@ int calculator()
     if (in == 's') c = sin(a);
     if (in == 'a')
     {
-        puts("Арккосинус(1) или арксинус?(2)");
+        puts("acos(1) or asin?(2)");
         scanf("%lg", &b);
         if (b == 1.00) acos(a);
         if (b == 2.00) asin(a);
@@ -69,7 +70,7 @@ int stxt(char filenam[256])
   char buffer[2048] = {0};
   fread(buffer, 2048, 1, f);
   fclose(f);
-  printf("Состав:\n%s\n", buffer);
+  printf("Contents:\n%s\n", buffer);
   int current_line = 0;
   scanf ("%d", &current_line);
   edit_line(buffer, current_line);
@@ -77,30 +78,33 @@ int stxt(char filenam[256])
   fwrite(buffer, strlen(buffer), 1, f);
   fclose(f);
 }
-void square_gen_and_print(int n)
+void square_gen_and_print(int n[2])
 {
-    puts("Введите длину грани квадрата:\t");
-    scanf("%d", &n);
-    if (n <= 0)
+    puts("Enter size of the cube:\t");
+    scanf("%d", &n[0]);
+    scanf("%d", &n[1]);
+    getchar();
+    if (n[1] <= 0 || n[0] <= 0)
     {
-      puts("НЕВОЗМОЖНО СОЗДАТЬ КВАДРАТ С ОТРИЦАТЕЛЬНОЙ ДЛИНОЙ ГРАНИ\n\007\007");
-      scanf("%d", &n);
+      puts("ERROR\n\007\007\n");
+      scanf("%d", &n[0]);
+      scanf("%d", &n[1]);
     }
-    char cube[n][n];
-    puts("Запускается генерация куба... подождите\n");
-    for (int i = 0; i < n; i++)
+    char cube[n[1]][n[0]];
+    puts("Starting the cube generation...\n");
+    for (int i = 0; i < n[1]; i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < n[0]; j++)
             cube[i][j] = '*';
     }
-    puts("Запускается печать куба...\n\n\n");
-    for (int i = 0; i < n; i++)
+    puts("Starting print process...\n\n\n");
+    for (int i = 0; i < n[1]; i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < n[0]; j++)
             printf("%c", cube[i][j]);
         printf("%c", '\n');
     }
-    puts("Печать куба завершена!");
+    puts("\007\n");
     return;
 }
 void max_and_min(int a, int n[])
@@ -116,5 +120,5 @@ void max_and_min(int a, int n[])
     if (n[i] < MIN) MIN = n[i];
   }
   med /= a;
-  printf("MAX=%d\nMIN=%d\nСреднее арифметическое:%g\n\007", MAX, MIN, med);
+  printf("MAX=%d\nMIN=%d\nMEDIUM:%g\n\007", MAX, MIN, med);
 }

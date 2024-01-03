@@ -11,7 +11,7 @@ void file_create(char filenam[256])
     FILE *f = fopen(filenam, "w");
     if ((f = fopen(filenam, "r")) != NULL)
     {
-      puts("ERROR #1, FILE WASN'T CREATED PROPERLY\007\n");
+      puts("ОШИБКА! ФАЙЛ БЫЛ СОЗДАН НЕПРАВИЛЬНО\007\n");
       f = fopen(filenam, "w");
     }
 }
@@ -37,7 +37,7 @@ int calculator()
     if (in == 's') c = sin(a);
     if (in == 'a')
     {
-        puts("acos(1) or asin?(2)");
+        puts("Арккосинус(1) или Арксинус?(2)");
         scanf("%lg", &b);
         if (b == 1.00) acos(a);
         if (b == 2.00) asin(a);
@@ -70,7 +70,7 @@ int stxt(char filenam[256])
   char buffer[2048] = {0};
   fread(buffer, 2048, 1, f);
   fclose(f);
-  printf("Contents:\n%s\n", buffer);
+  printf("\n%s\n", buffer);
   int current_line = 0;
   scanf ("%d", &current_line);
   edit_line(buffer, current_line);
@@ -80,7 +80,7 @@ int stxt(char filenam[256])
 }
 void square_gen_and_print(int n[2])
 {
-    puts("Enter size of the cube:\t");
+    puts("Введите размер куба:\t");
     scanf("%d", &n[0]);
     scanf("%d", &n[1]);
     getchar();
@@ -120,5 +120,5 @@ void max_and_min(int a, int n[])
     if (n[i] < MIN) MIN = n[i];
   }
   med /= a;
-  printf("MAX=%d\nMIN=%d\nMEDIUM:%g\n\007", MAX, MIN, med);
+  printf("MAX=%d\nMIN=%d\nMED:%g\n\007", MAX, MIN, med);
 }

@@ -9,6 +9,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include "packagemanager.h"
+#include "texor.c"
 /*
 *    Simple terminal emulator for Andesaurus-OS.
 *    Copyright (C) 2023  AndesaurusSoft
@@ -28,7 +29,13 @@ void login()
         println("Загрузка...");
     }
 }
+int terminal();
 int main()
+{
+    terminal();
+    return (0);
+}
+int terminal()
 {
     login();
     char in[1025] = {0};
@@ -90,13 +97,6 @@ int main()
             println("Установка завершена!");
             fputs("\0", stdin);
         }
-        else if (strcmp(in, "pkg install stxt") == 0 && inst[STXT] == 0)
-        {
-            puts("Установка \"stxt\"...\n");
-            inst[STXT] = 2;
-            puts("Установка завершена! Теперь нужно установить stxt-filecreate\n");
-            fputs("\0", stdin);
-        }
         else if (strcmp(in, "pkg install ugadaika") == 0 && inst[UGADAIKA] == 0)
         {
             puts("Установка \"ugadaika\"...\n");
@@ -108,13 +108,6 @@ int main()
         {
             puts("Установка \"t-gamec\"...\n");
             inst[GAME] = 1;
-            puts("Установка завершена!\n");
-            fputs("\0", stdin);
-        }
-        else if (strcmp(in, "pkg install stxt-filecreate") == 0 && inst[STXT] == 2)
-        {
-            puts("Установка \"stxt-filecreate\"...\n");
-            inst[STXT] = 1;
             puts("Установка завершена!\n");
             fputs("\0", stdin);
         }
@@ -256,7 +249,8 @@ int main()
         }
         else if(strcmp(in, "help") == 0)
         {
-            puts("ugadaika – игра «Угадайка»\nchange_usr – сменить пользователя\ninfo – информация о системе\nexit – выход\ncalc – калькулятор\ngame – T-GameC\n007 – звук предупреждения системы\nrandom_number – генератор случайных чисел\nsquare_gen – генератор квадрата\ntime – текущее время\nmax_min – нахождение максимального и минимального числа\n");
+            println("ugadaika – игра «Угадайка»\nchange_usr – сменить пользователя\ninfo – информация о системе\nexit – выход\ncalc – калькулятор\ngame – T-GameC\n007 – звук предупреждения системы\nrandom_number – генератор случайных чисел\nsquare_gen – генератор квадрата\ntime – текущее время\nmax_min – нахождение максимального и минимального числа\ntexor – текстовый редактор\nbash_mode – запустить консоль ОС");
+            bell();
             fputs("\0", stdin);
         }
         else if (strcmp(in, "time") == 0 && inst[TIME] == 1)
@@ -265,32 +259,38 @@ int main()
             printf("%s\n", ctime(&t));
             fputs("\0", stdin);
         }
+        else if (strcmp(in, "bash_mode") == 0)
+        {
+            while(1)
+            {
+                println("Введите любую команду или quit для выхода");
+                char cmd[256];
+                fgets(cmd, 255, stdin);
+                deleten(cmd);
+                system(cmd);
+            }
+        }
         else if (strcmp(in, "time") == 0 && inst[TIME] == 0)
         {
             puts("Программа \"time\" не найдена, но её можно установить с помощью команды pkg install time");
-            fputs("\0", stdin);
-        }
-        else if (strcmp(in, "stxt") == 0 && inst[STXT] == 1)
-        {
-            char filenam[256];
-            puts("Введите название файла:\t");
-            scanf("%255[^\n]%*c", filenam);
-            stxt(filenam);
-        }
-        else if (strcmp(in, "stxt") == 0 && inst[STXT] == 0)
-        {
-            puts("Программа \"stxt\" не найдена, но её можно установить с помощью команды pkg install stxt, а затем pkg install stxt-filecreate");
-            fputs("\0", stdin);
-        }
-        else if (strcmp(in, "stxt") == 0 && inst[STXT] == 2)
-        {
-            puts("Программа \"stxt\" найдена, но зависимость \"stxt-filecreate\" не установлена, её можно установить с помощью команды pkg install stxt, а затем pkg install stxt-filecreate");
             fputs("\0", stdin);
         }
         else if (strcmp(in, "kill system") == 0)
         {
             killsys();
             break;
+        }
+        else if (strcmp(in, "texor") == 0)
+        {
+            char filenam[256];
+            println("Введите название файла:\t");
+            fgets(filenam, 256, stdin);
+            deleten(filenam);
+            if (fopen(filenam, "r") == NULL)
+            {
+                file_create(filenam);
+            }
+            texor(filenam);
         }
         else {
             printf("%s, команда не найдена, для получения списка команд, введите \"help\"\n", in);

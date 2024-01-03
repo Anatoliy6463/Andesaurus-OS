@@ -14,6 +14,7 @@ void file_create(char filenam[256])
       puts("ОШИБКА! ФАЙЛ БЫЛ СОЗДАН НЕПРАВИЛЬНО\007\n");
       f = fopen(filenam, "w");
     }
+    fclose(f);
 }
 void exponentiation(double a, double a2, double n)
 {
@@ -45,38 +46,6 @@ int calculator()
     }
     printf("%lg\n", c);
     return (0);
-}
-void edit_line(char* buffer, int current_line)
-{
-  for (int i = 0; i < current_line; i++) {
-    strchr(buffer, '\n') + 1;
-  }
-  char* line_end = strchr(buffer, '\n');
-  char saved[2048] = {0};
-  strcpy(saved, line_end);
-  scanf("%2047[^\n]%*c", buffer);
-  strcpy(buffer + strlen(buffer), saved);
-}
-int stxt(char filenam[256])
-{
-  FILE *f;
-  if (fopen(filenam, "r+") == NULL)
-  {
-    f = fopen(filenam, "w");
-  }
-  else {
-    f = fopen(filenam, "r+");
-  }
-  char buffer[2048] = {0};
-  fread(buffer, 2048, 1, f);
-  fclose(f);
-  printf("\n%s\n", buffer);
-  int current_line = 0;
-  scanf ("%d", &current_line);
-  edit_line(buffer, current_line);
-  f = fopen(filenam, "w");
-  fwrite(buffer, strlen(buffer), 1, f);
-  fclose(f);
 }
 void square_gen_and_print(int n[2])
 {

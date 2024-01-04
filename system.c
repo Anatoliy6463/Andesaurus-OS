@@ -1,10 +1,10 @@
 #include <stdio.h>
-#include "extra/bell.h"
+#include "additional/extra/bell.h"
 #include <string.h>
-#include "games.h"
 #include <unistd.h>
 #include "keyf.h"
-#include "apps.h"
+#include "additional/apps.h"
+#include "additional/games.h"
 #include "user-keyfrases.h"
 #include <time.h>
 #include <stdlib.h>
@@ -29,13 +29,13 @@ void login()
         println("Загрузка...");
     }
 }
-int terminal();
+void terminal();
 int main()
 {
     terminal();
     return (0);
 }
-int terminal()
+void terminal()
 {
     login();
     char in[1025] = {0};
@@ -43,7 +43,7 @@ int terminal()
     time_t t;
     while(1)
     {
-        printf("user@andesaurus:\t");
+        printf("user@ansh:\t");
         fgets(in, 1024, stdin);
         deleten(in);
         if (strcmp(in, "ugadaika") == 0 && inst[UGADAIKA] == 1)

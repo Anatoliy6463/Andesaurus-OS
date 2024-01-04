@@ -5,6 +5,11 @@ void deleten(char* in)
     if ((strlen(in) > 0) && (in[strlen (in) - 1] == '\n'))
         in[strlen (in) - 1] = '\0';
 }
+void clear(char *input)
+{
+	fputs("\0", stdin);
+	for (int i = 0; i < sizeof(input); i++) input[i] = '\0';
+}
 void login(int result)
 {
 	char usrpass[16] = {0};

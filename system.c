@@ -4,10 +4,6 @@
 #include "apps.h"
 #include "base.h"
 #include "terminal.h"
-void boot();
-void ls(char[]);
-int terminal();
-void deleten(char[]);
 int main()
 {
 	int result;
@@ -25,9 +21,4 @@ void boot()
 {
 	puts("Идёт загрузка системы...\n");
 	terminal();
-}
-void clear(char *input)
-{
-	fputs("\0", stdin);
-	for (int i = 0; i < sizeof(input); i++) input[i] = '\0';
 }

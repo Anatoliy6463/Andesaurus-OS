@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include "games.h"
 #include "apps.h"
 #include "base.h"
 void boot();
@@ -98,7 +99,12 @@ int terminal()
 		}
 		else if (strcmp(input, "\0") == 0)
 		{
-
+			clear(input);
+		}
+		else if (strcmp(input, "game") == 0)
+		{
+			puts("Загрузка...\n");
+			game();
 		}
 		else if (strcmp(input, "exit") == 0)
 		{

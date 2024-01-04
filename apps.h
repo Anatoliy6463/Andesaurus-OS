@@ -4,7 +4,7 @@
 #include <string.h>
 /*
 *    Simple apps for Andesaurus-OS.
-*    Copyright (C) 2023  AndesaurusSoft
+*    Copyright (C) 2023, 2024  AndesaurusSoft
 */
 int bubble_sort(int a, int n[])
 {

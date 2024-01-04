@@ -6,13 +6,26 @@
 *    Simple apps for Andesaurus-OS.
 *    Copyright (C) 2023  AndesaurusSoft
 */
-void file_create(char filenam[256])
+int bubble_sort(int a, int n[])
 {
-    FILE *f = fopen(filenam, "w");
-    if ((f = fopen(filenam, "r")) != NULL)
-    {
-      puts("ОШИБКА №1, ФАЙЛ НЕПРАВИЛЬНО СОЗДАН");
-    }
+        printf("Введите любые %d целых чисел\n", a);
+        for (int i = 0; i < a; i++)
+        {
+                scanf("%d", &n[i]);
+        }
+        for (int i = 0; i < a; i++)
+        {
+                for (int j = -1; j < a - 1; j++)
+                {
+                        if (n[j] > n[i])
+                        {
+                                int temp = n[j];
+                                n[j] = n[i];
+                                n[i] = temp;
+                        }
+                }
+        }
+        return (0);
 }
 void exponentiation(double a, double a2, double n)
 {

@@ -119,8 +119,3 @@ int terminal()
 		}
 	}
 }
-void deleten(char* in)
-{
-    if ((strlen(in) > 0) && (in[strlen (in) - 1] == '\n'))
-        in[strlen (in) - 1] = '\0';
-}
